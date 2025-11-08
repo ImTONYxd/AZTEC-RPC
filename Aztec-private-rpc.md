@@ -1,28 +1,26 @@
 # 🪩 Sepolia RPC + Prysm Beacon Setup (2025 Updated Guide)
 
-A complete, modern setup for a Sepolia Execution (Geth) and Consensus (Prysm) node — ideal for Aztec Sequencer or private RPC usage.
+### A complete, modern setup for a Sepolia Execution (Geth) and Consensus (Prysm) node — ideal for Aztec Sequencer or private RPC usage.
 
 ## ⚙️ System Requirements
 
 ## Minimum (RPC only):
 
-4 vCPU
+### 4 vCPU
 
-8 GB RAM
+### 8 GB RAM
 
-1 TB+ SSD
-
-Root access
+### 1 TB+ SSD
 
 ## Recommended (RPC + Aztec):
 
-6+ vCPU
+### 6+ vCPU
 
-16 GB+ RAM
+### 16 GB+ RAM
 
-1 TB+ SSD
+### 1 TB+ SSD
 
-Ubuntu 22 / 24 LTS
+### Ubuntu 22 / 24 LTS
 
 ## 🧩 Step 0 — Become Root
 ```bash 
@@ -179,11 +177,6 @@ ufw allow 30303/udp
 ufw enable
 ```
 
-## 🌐 RPC Endpoints
-Layer	Inside VPS	External Access
-Execution (Geth)	http://localhost:8545	http://<your-vps-ip>:8545
-Beacon (Prysm)	http://localhost:3500	http://<your-vps-ip>:3500
-
 ## 🪄 Step 9 — Mirror Switchers (if checkpoint fails)
 
 Switch to ChainSafe
@@ -224,11 +217,11 @@ Auto-prune Docker weekly
 echo "@weekly root docker system prune -af --volumes >/dev/null 2>&1" > /etc/cron.d/docker-prune && chmod 644 /etc/cron.d/docker-prune
 ```
 
-## ✅ Summary
-Component	Status	Endpoint
-Execution (Geth)	✅ Snap Sync	http://localhost:8545
-Consensus (Prysm)	✅ Checkpoint Sync	http://localhost:3500
-Aztec Ready	🟢 Yes	Use the two RPC URLs above
+## 🌐 RPC Endpoints
+### Layer	Inside VPS	External Access
+### Execution (Geth)	http://localhost:8545	
+### Beacon (Prysm)	http://localhost:3500	
+### Replace localhost with ur vps IP adress
 
 ## ✅ Done!
 You now have a fully functional private Sepolia RPC ready for Aztec or custom use.
