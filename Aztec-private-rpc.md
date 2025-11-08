@@ -177,19 +177,7 @@ ufw allow 30303/udp
 ufw enable
 ```
 
-## 🪄 Step 9 — Mirror Switchers (if checkpoint fails)
-
-Switch to ChainSafe
-```bash 
-sed -i 's#checkpoint-sync.sepolia.beaconcha.in#beaconstate-sepolia.chainsafe.io#g' /root/ethereum/docker-compose.yml && docker compose up -d prysm
-```
-
-Switch to EthStaker
-```bash 
-sed -i 's#checkpoint-sync.sepolia.beaconcha.in#sepolia-checkpoints.ethstaker.cc#g' /root/ethereum/docker-compose.yml && docker compose up -d prysm
-```
-
-## ⏱ Step 10 — Verify Sync Completion
+## ⏱ Step 9 — Verify Sync Completion
 
 ✅ Execution fully synced
 ```bash 
@@ -203,6 +191,18 @@ curl -s -H "Content-Type: application/json" \
 ```bash 
 curl -s http://localhost:3500/eth/v1/node/syncing
 # → "is_syncing": false
+```
+
+## 🪄 Step 10 — Mirror Switchers (if checkpoint fails)
+
+Switch to ChainSafe
+```bash 
+sed -i 's#checkpoint-sync.sepolia.beaconcha.in#beaconstate-sepolia.chainsafe.io#g' /root/ethereum/docker-compose.yml && docker compose up -d prysm
+```
+
+Switch to EthStaker
+```bash 
+sed -i 's#checkpoint-sync.sepolia.beaconcha.in#sepolia-checkpoints.ethstaker.cc#g' /root/ethereum/docker-compose.yml && docker compose up -d prysm
 ```
 
 ## 🧼 Step 11 — Maintenance (Optional)
